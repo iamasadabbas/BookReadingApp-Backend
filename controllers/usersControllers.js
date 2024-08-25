@@ -10,7 +10,7 @@ const router=express.Router();
 router.use(express.json());
 router.use(cookieParser())
 router.use(cors({
-    origin:'http://localhost:3000',
+    origin:'http://localhost:5000',
     methods:['GET','POST'],
     credentials:true,
 }))
@@ -25,7 +25,7 @@ const postUser = async (req, resp) => {
         const hashedPassword = await bcrypt.hash(data.password, saltRound)
         data.password = hashedPassword;
         let result = await data.save();
-        return resp.send({ status: 200, message: 'Login Successfully' });
+        return resp.send({ status: 200, message: 'Account Created Successfully' });
     } catch (error) {
         if (error.code === 11000 && error.keyPattern && error.keyPattern.email) {
             return resp.send({ status: 409, message: 'Email already exists' }); // Return 409 Conflict status

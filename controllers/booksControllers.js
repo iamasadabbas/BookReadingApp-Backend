@@ -46,7 +46,7 @@ const getBookByBookFile = async (req, resp) => {
         if (!data) {
             return resp.status(404).send('Book not found');
         }
-        const pathDirectory='C:/Users/Asad/Desktop/Project1/server/uploads/bookCoverImage'
+        const pathDirectory='E:/MERN/biggner/Book Reading App/server/uploads/bookCoverImage'
         const filePath=path.join(pathDirectory,data.bookFile)
         // Read the PDF file from the server
 
